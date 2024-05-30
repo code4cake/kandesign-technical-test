@@ -8,7 +8,7 @@ export interface Parameter {
 }
 
 export interface LineData {
-  datetime: string;
+  datetime: string | Date;
   GCV: number;
   S1: number;
   S2: number;

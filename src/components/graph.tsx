@@ -7,11 +7,14 @@ import {
   Tooltip,
   Legend,
   CategoryScale,
+  TimeScale,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
+import type { Parameter as IParameter } from "@/types/GraphData";
 import { useChartData } from "@/hooks/useChartData";
 import { useGraphData } from "@/api/useGraphData";
+import { Parameter } from "./paramater";
 
 ChartJS.register(
   LineElement,
@@ -20,7 +23,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  CategoryScale
+  CategoryScale,
+  TimeScale
 );
 
 export function Graph() {
@@ -33,11 +37,18 @@ export function Graph() {
   const { chartData, chartOptions } = useChartData(data);
 
   return (
-    <section className="flex justify-center items-center m-auto align-center pt-10">
+    <>
       <div>{isFetching ? "Updating..." : ""}</div>
-      <div style={{ width: "1000px", height: "500px" }}>
-        <Line data={chartData} options={chartOptions} />
+
+      <article className="flex gap-5 justify-items-center justify-center dark text-center">
+        {data.parameters.map((parameter: IParameter) => (
+          <Parameter parameter={parameter} />
+        ))}
+      </article>
+
+      <div style={{ width: "1000px", height: "500px" }} className="p-10">
+        <Line data={chartData} options={chartOptions} color="#fafafa" />
       </div>
-    </section>
+    </>
   );
 }

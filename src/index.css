@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,4 +58,26 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  font: 500 18px/1.5 "Fira Sans Extra Condensed", sans-serif, system-ui;
+
+  .fira__regular {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .fira__medium {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+
+body {
+  background: hsla(20 14.3% 4.1%);
+  padding: 0;
+  margin: 0;
 }
