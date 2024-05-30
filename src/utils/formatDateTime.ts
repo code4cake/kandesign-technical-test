@@ -1,4 +1,4 @@
-export const formatDateTime = (datetime: string) => {
+export const formatDateTime = (datetime: string | Date) => {
   const date = new Date(datetime);
   const day = date.getDate().toString().padStart(2, "0");
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
