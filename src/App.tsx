@@ -1,19 +1,7 @@
-import {
-  useQuery,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Graph } from "@/components/graph";
 
 const queryClient = new QueryClient();
@@ -21,21 +9,15 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="flex justify-items-center">
-        {/* <Button onClick={() => console.log("I was clicked")}>Click me</Button
-
-        <Card className="w-[350px]">
+      <main className="grid justify-items-center pt-10 dark">
+        <Card>
           <CardHeader>
-            <CardTitle>Create project</CardTitle>
-            <CardDescription>
-              Deploy your new project in one-click.
-            </CardDescription>
+            <CardTitle className="text-3xl text-center font-normal">
+              Glucose level over time
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <p>Some content</p>
-          </CardContent>
-        </Card> */}
-        <Graph />
+          <Graph />
+        </Card>
       </main>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
